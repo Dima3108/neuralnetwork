@@ -50,13 +50,14 @@ namespace _37_2_Павлов_Нейросеть
             this.button19 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.button20 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(194, 123);
+            this.button1.Location = new System.Drawing.Point(194, 150);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 62);
@@ -66,17 +67,18 @@ namespace _37_2_Павлов_Нейросеть
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(262, 123);
+            this.button2.Location = new System.Drawing.Point(264, 148);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 62);
             this.button2.TabIndex = 1;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(332, 123);
+            this.button3.Location = new System.Drawing.Point(332, 150);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(60, 62);
@@ -238,10 +240,11 @@ namespace _37_2_Павлов_Нейросеть
             this.button19.Location = new System.Drawing.Point(52, 292);
             this.button19.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(112, 35);
+            this.button19.Size = new System.Drawing.Size(112, 90);
             this.button19.TabIndex = 18;
-            this.button19.Text = "сохранить";
+            this.button19.Text = "сохранить обучение";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // numericUpDown1
             // 
@@ -260,11 +263,21 @@ namespace _37_2_Павлов_Нейросеть
             this.label1.TabIndex = 20;
             this.label1.Text = "label1";
             // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(12, 126);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(127, 117);
+            this.button20.TabIndex = 21;
+            this.button20.Text = "пример теста сохранить";
+            this.button20.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.button20);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button19);
@@ -289,6 +302,7 @@ namespace _37_2_Павлов_Нейросеть
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -318,6 +332,7 @@ namespace _37_2_Павлов_Нейросеть
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button20;
     }
 }
 

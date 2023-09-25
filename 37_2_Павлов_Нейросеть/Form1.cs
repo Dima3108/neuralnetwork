@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 namespace _37_2_Павлов_Нейросеть
 {
     public partial class Form1 : Form
     {
+        private const string trainFileNmae = "fortrainsample.txt";
+        private readonly string pathMyApp = AppDomain.CurrentDomain.BaseDirectory+trainFileNmae;//файловый путь к приложению
         private int[] InputData = new int[15];
         private Button[] NumbersButtons;
         public Form1()
@@ -29,6 +31,13 @@ namespace _37_2_Павлов_Нейросеть
             for (int l = 0; l < InputData.Length; l++)
                 i += InputData[l] * (int)Math.Pow(2, l);
             return i;
+        }
+        private string GetInputToStringBit()
+        {
+            string s = "";
+            for (int l = 0; l < InputData.Length; l++)
+                s += (InputData[l] == 0) ? "0" : "1";
+                return s;
         }
         /// <summary>
         /// Подписка на события кнопок ввода
@@ -60,6 +69,24 @@ for(int i = 0; i < NumbersButtons.Length; i++)
 #endif
                 };
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+        //save train sample
+        private void button19_Click(object sender, EventArgs e)
+        {
+            string tmp = numericUpDown1.Value.ToString();
+            tmp += GetInputToStringBit()+"\n";
+            File.AppendAllText(pathMyApp, tmp);
+            
         }
     }
 }

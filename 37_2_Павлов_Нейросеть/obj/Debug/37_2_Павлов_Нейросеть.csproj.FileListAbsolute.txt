@@ -9,3 +9,14 @@ Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\Debug\37_2
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.csproj.CoreCompileInputs.cache
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.exe
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.pdb
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\bin\Debug\37_2_Павлов_Нейросеть.exe.config
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\bin\Debug\37_2_Павлов_Нейросеть.exe
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\bin\Debug\37_2_Павлов_Нейросеть.pdb
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.csproj.AssemblyReference.cache
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.csproj.SuggestedBindingRedirects.cache
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\obj\Debug\_37_2_Павлов_Нейросеть.Form1.resources
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\obj\Debug\_37_2_Павлов_Нейросеть.Properties.Resources.resources
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.csproj.GenerateResource.cache
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.csproj.CoreCompileInputs.cache
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.exe
+Z:\нейронные сети\neuralnetwork-main\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.pdb

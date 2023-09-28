@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="NetWorkModel\HiddenLayer1.cs" />
+    <Compile Include="NetWorkModel\HiddenLayer2.cs" />
+    <Compile Include="NetWorkModel\InputLayer.cs" />
+    <Compile Include="NetWorkModel\Layer.cs" />
+    <Compile Include="NetWorkModel\Network.cs" />
+    <Compile Include="NetWorkModel\OutputLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityRead.cs" />

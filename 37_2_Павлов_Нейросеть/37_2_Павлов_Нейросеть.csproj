@@ -57,6 +57,7 @@
     <Compile Include="NetWorkModel\InputLayer.cs" />
     <Compile Include="NetWorkModel\Layer.cs" />
     <Compile Include="NetWorkModel\Network.cs" />
+    <Compile Include="NetWorkModel\Neuron.cs" />
     <Compile Include="NetWorkModel\OutputLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

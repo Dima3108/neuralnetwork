@@ -8,5 +8,9 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
     public class OutputLayer:Layer
     {
+        public OutputLayer()
+        {
+            neurons = new Neuron[10];
+        }
     }
 }

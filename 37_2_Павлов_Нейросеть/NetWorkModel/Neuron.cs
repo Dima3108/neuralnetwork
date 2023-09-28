@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
-    public class HiddenLayer2:Layer
+    public class Neuron
     {
-        public HiddenLayer2()
-        {
-            neurons = new Neuron[32];
-        }
     }
 }

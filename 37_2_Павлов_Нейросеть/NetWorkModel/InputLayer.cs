@@ -8,7 +8,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
     public class InputLayer:Layer
     {
-        public InputLayer()
+        public InputLayer(Layer layer):base(layer)
         {
             neurons = new Neuron[15];
         }

@@ -8,7 +8,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
     public class HiddenLayer2:Layer
     {
-        public HiddenLayer2()
+        public HiddenLayer2(Layer layer) : base(layer)
         {
             neurons = new Neuron[32];
         }

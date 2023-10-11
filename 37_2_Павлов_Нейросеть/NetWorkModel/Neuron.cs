@@ -9,5 +9,13 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
     public class Neuron
     {
+        public double Output { get; }
+        public double Derivative { get; }
+        private double LogicFunc(double x) => 1 / (1 + Math.Pow(Math.E, -x));
+        private double LogicFuncDerivative(double x)
+        {
+            double val = LogicFunc(x);
+            return val * (1 - val);
+        }
     }
 }

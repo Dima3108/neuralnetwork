@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
-    internal class TypeNeuron
+    public enum TypeNeuron
     {
-    }
+        HiddenNeuron=0,
+        OutputNeuron=1
+    };
 }

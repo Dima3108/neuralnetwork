@@ -59,6 +59,7 @@
     <Compile Include="NetWorkModel\Network.cs" />
     <Compile Include="NetWorkModel\Neuron.cs" />
     <Compile Include="NetWorkModel\OutputLayer.cs" />
+    <Compile Include="NetWorkModel\TypeNeuron.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityRead.cs" />

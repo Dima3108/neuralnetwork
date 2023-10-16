@@ -10,6 +10,9 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
     {
         HiddenNeuron=0,
         OutputNeuron=1
+#if DEBUG
+            ,InputNeuron=-1
+#endif
     };
     public enum MemoryMode
     {

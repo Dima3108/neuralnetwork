@@ -15,9 +15,20 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
             neurons = new Neuron[non];
             numofprevneurons = nopn;
             fLauerName = nameLayer;
-            pathDirWeights = AppDomain.CurrentDomain.BaseDirectory;
+            pathDirWeights = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "memory");
+            if(!Directory.Exists(pathDirWeights))
+                Directory.CreateDirectory(pathDirWeights);
+                // AppDomain.CurrentDomain.BaseDirectory;
+            pathFileWeights =Path.Combine( pathDirWeights,nameLayer+".csv");
+#if DEBUG
+            File.Create(pathFileWeights);
+            Console.WriteLine(pathFileWeights);
+#endif
             double[,] weights;//временныймассив весов
-            weights = null; 
+            weights = null;
+#if DEBUG
+            weights = WeightInitialize(MemoryMode.INIT, pathFileWeights);
+#endif
             lastdeltaweights = new double[non, nopn + 1];
             for(int i = 0; i < non; ++i)
             {
@@ -32,10 +43,15 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
 
         }
         public double[,]WeightInitialize(MemoryMode mm,string path)
-        {
+        { double[,] w = new double[numofneurons, numofprevneurons+1];
             switch (mm)
             {
-                case MemoryMode.INIT: return null;
+                case MemoryMode.INIT:
+                   
+
+                    return w;
+                case MemoryMode.GET:
+                    return w;
                 default:return null;
             }
         }
@@ -76,7 +92,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         /// <summary>
         /// кол-во пред нейронов
         /// </summary>
-        protected int numofprevneurons;
+        protected int numofprevneurons { get; }
         /// <summary>
         /// массив весов предыдущих слоев
         /// </summary>

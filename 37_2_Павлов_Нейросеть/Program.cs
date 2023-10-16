@@ -8,15 +8,19 @@ namespace _37_2_Павлов_Нейросеть
 {
     static class Program
     {
+        private static Form1 form;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
+        
         [STAThread]
         static void Main()
         {
+            Console.WriteLine("###");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+          form = new Form1();
+            Application.Run(form);
         }
     }
 }

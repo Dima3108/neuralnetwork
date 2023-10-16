@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using _37_2_Павлов_Нейросеть.NetWorkModel;
+
 namespace _37_2_Павлов_Нейросеть
 {
     public partial class Form1 : Form
@@ -20,6 +22,9 @@ namespace _37_2_Павлов_Нейросеть
         /// Защита от дублирования
         /// </summary>
         private SecurityRead secReader;
+#if DEBUG
+        Network _network;
+#endif
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +36,9 @@ namespace _37_2_Павлов_Нейросеть
             #region ЗащитаОтДублирования
             secReader = new SecurityRead(pathMyApp);
             #endregion
+#if DEBUG
+            _network = new Network();
+#endif
         }
         private int GetInputBitToInt()
         {

@@ -52,7 +52,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                for(int i = 0; i < Neurons.Length; i++)
                 {
  Neurons[i].InputData=value;
- Neurons[i].Activator(Neurons[i].InputData,Neurons[i].Weights);
+ Neurons[i].Activator(Neurons[i].InputData,Neurons[i].weights);
                 }
                  
                  

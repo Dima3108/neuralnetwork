@@ -9,8 +9,31 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
     public class Neuron
     {
-        public double Output { get; }
-        public double Derivative { get; }
+        public double Output { get=>_output; }
+        private double _output,_derivative;
+        public double[] weights { get; set; }
+        public double[] InputData { set; get; }
+        
+        public double Derivative { get=>_derivative; }
+        public TypeNeuron _type { get; }
+        public Neuron(double[]_weights,TypeNeuron type)
+        {
+            _type = type;
+            weights = _weights;
+        }
+        public void Activator(double[] inpt, double[] wght)
+        {
+            double sum = wght[0];
+            for (int m = 0; m < inpt.Length; ++m)
+                sum += inpt[m] * wght[m + 1];
+            switch (_type)
+            {
+                case TypeNeuron.HiddenNeuron:
+                    _output=LogicFunc(sum); 
+                    _derivative=LogicFuncDerivative(sum);
+                    break;
+            }
+        }
         private double LogicFunc(double x) => 1 / (1 + Math.Pow(Math.E, -x));
         private double LogicFuncDerivative(double x)
         {

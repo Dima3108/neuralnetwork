@@ -11,4 +11,10 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         HiddenNeuron=0,
         OutputNeuron=1
     };
+    public enum MemoryMode
+    {
+        INIT=0,
+        SET=1,
+        GET=2
+    };
 }

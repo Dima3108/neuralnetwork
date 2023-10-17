@@ -18,9 +18,9 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         {
 
         }
-        public override void BackWardPass(double[] stuff)
+        public override double[] BackWardPass(double[] stuff)
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
         // public OutputLayer( int nopn, TypeNeuron _type, string nameLayer, Layer _n = null):base(10,)
         /*  {

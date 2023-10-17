@@ -91,7 +91,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
             return w;
         }
         abstract public void Recognaize(Network net, Layer _next);
-        abstract public void BackWardPass(double[] stuff);
+        abstract public double[] BackWardPass(double[] stuff);
         private protected Neuron[] neurons;
         public Neuron[] Neurons
         {

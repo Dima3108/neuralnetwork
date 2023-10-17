@@ -16,5 +16,13 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
             neurons = new Neuron[32];
         }
 #endif
+        public override void Recognaize(Network net, Layer _next)
+        {
+            throw new NotImplementedException();
+        }
+        public override double[] BackWardPass(double[] stuff)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

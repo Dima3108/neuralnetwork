@@ -20,7 +20,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                 Directory.CreateDirectory(pathDirWeights);
             // AppDomain.CurrentDomain.BaseDirectory;
             pathFileWeights = Path.Combine(pathDirWeights, nameLayer + ".csv");
-#if DEBUG
+#if false
             File.Create(pathFileWeights);
             Console.WriteLine(pathFileWeights);
 #endif

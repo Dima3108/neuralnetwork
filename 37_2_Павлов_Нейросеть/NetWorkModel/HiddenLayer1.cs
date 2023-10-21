@@ -9,14 +9,15 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
     public class HiddenLayer1:Layer
     {
 #if DEBUG
-        public HiddenLayer1(Layer _n = null) : base(73, 15, TypeNeuron.HiddenNeuron, nameof(HiddenLayer1), _n) { }
-       
+        public HiddenLayer1(int non, int nopn, TypeNeuron tn, string name,Layer n=null) : base(non, nopn, tn, name) { }
+        //(Layer _n = null) : base(73, 15, TypeNeuron.HiddenNeuron, nameof(HiddenLayer1), _n) { }
+
 #else
         public HiddenLayer1(Layer layer):base(layer)
         {
             neurons = new Neuron[73];
         }
-#endif 
+#endif
         public override double[] BackWardPass(double[] stuff)
         {
             throw new NotImplementedException();

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Threading.Tasks;
 
 namespace _37_2_Павлов_Нейросеть
@@ -58,12 +54,12 @@ namespace _37_2_Павлов_Нейросеть
                     bool nal = false;
                     Task.Run(async delegate
                     {
-                        while(!reader.EndOfStream) 
+                        while (!reader.EndOfStream)
                         {
                             if (await reader.ReadLineAsync() == value)
                                 nal = true;
                         }
-                    reader.Close();
+                        reader.Close();
                     }).Wait();
                     if (nal)
                     {

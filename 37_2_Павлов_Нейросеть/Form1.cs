@@ -1,23 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using _37_2_Павлов_Нейросеть.NetWorkModel;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using _37_2_Павлов_Нейросеть.NetWorkModel;
-
+using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Collections;
+using System.Collections.ObjectModel;
+using System.Linq;
 namespace _37_2_Павлов_Нейросеть
 {
     public partial class Form1 : Form
     {
         private const string trainFileNmae = "fortrainsample.txt";
-        private readonly string pathMyApp = AppDomain.CurrentDomain.BaseDirectory+trainFileNmae;//файловый путь к приложению
+        private readonly string pathMyApp = AppDomain.CurrentDomain.BaseDirectory + trainFileNmae;//файловый путь к приложению
         private int[] InputData = new int[15];
         private Button[] NumbersButtons;
+        public double[] NetOutput
+        {
+            set
+            {
+                // List<double> ol = new List<double>();
+                string vla = value.ToList().IndexOf(value.Max()).ToString();
+
+                MessageBox.Show(vla);
+                label1.Text = vla;
+            }
+        }
         /// <summary>
         /// Защита от дублирования
         /// </summary>
@@ -37,7 +45,7 @@ namespace _37_2_Павлов_Нейросеть
             secReader = new SecurityRead(pathMyApp);
             #endregion
 #if DEBUG
-            _network = new Network();
+            _network = new Network(NetworkMode.Demo);
 #endif
         }
         private int GetInputBitToInt()
@@ -52,7 +60,7 @@ namespace _37_2_Павлов_Нейросеть
             string s = "";
             for (int l = 0; l < InputData.Length; l++)
                 s += (InputData[l] == 0) ? "0 " : "1 ";
-                return s;
+            return s;
         }
         /// <summary>
         /// Подписка на события кнопок ввода
@@ -62,7 +70,7 @@ namespace _37_2_Павлов_Нейросеть
             /*Обнулить кнопки*/
             for (int i = 0; i < NumbersButtons.Length; i++)
                 NumbersButtons[i].BackColor = Color.Black;
-for(int i = 0; i < NumbersButtons.Length; i++)
+            for (int i = 0; i < NumbersButtons.Length; i++)
             {
                 int a = i;
                 NumbersButtons[i].Click += (s, e) =>
@@ -74,7 +82,7 @@ for(int i = 0; i < NumbersButtons.Length; i++)
                     }
                     else
                     {
-                        NumbersButtons[a].BackColor = Color.Black; 
+                        NumbersButtons[a].BackColor = Color.Black;
                         InputData[a] = 0;
                     }
 #if DEBUG
@@ -166,17 +174,22 @@ for(int i = 0; i < NumbersButtons.Length; i++)
         private void button19_Click(object sender, EventArgs e)
         {
             string tmp = numericUpDown1.Value.ToString();
-            tmp +=" "+ GetInputToStringBit();
+            tmp += " " + GetInputToStringBit();
             if (secReader.ScanValue(tmp))
             {
                 MessageBox.Show("Введенное значение уже сохранено", "предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
- File.AppendAllText(pathMyApp, tmp+"\n");
+                File.AppendAllText(pathMyApp, tmp + "\n");
             }
-           
-            
+
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            _network.ForwardPass(_network, InputData);
         }
     }
 }

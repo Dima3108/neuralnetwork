@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
-    public class InputLayer:Layer
+    public class InputLayer : Layer
     {
 #if DEBUG
-        public InputLayer(Layer _n=null) : base(15, 1, TypeNeuron.InputNeuron, nameof(InputLayer), _n) { }
+        public InputLayer(NetworkMode networkMode, Layer _n = null) : base(15, 1, TypeNeuron.InputNeuron, nameof(InputLayer), _n) { }
         public override double[] BackWardPass(double[] stuff)
         {
             throw new NotImplementedException();

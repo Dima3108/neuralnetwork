@@ -13,7 +13,7 @@ namespace _37_2_Павлов_Нейросеть
     {
         private const string trainFileNmae = "fortrainsample.txt";
         private readonly string pathMyApp = AppDomain.CurrentDomain.BaseDirectory + trainFileNmae;//файловый путь к приложению
-        private int[] InputData = new int[15];
+        private double[] InputData = new double[15];
         private Button[] NumbersButtons;
         public double[] NetOutput
         {
@@ -24,6 +24,13 @@ namespace _37_2_Павлов_Нейросеть
 
                 MessageBox.Show(vla);
                 label1.Text = vla;
+                string s = "";
+                foreach(var v in value){
+                  s+=  v.ToString()+" ";
+             }
+#if DEBUG
+                Console.WriteLine($"output log:{ s}");
+#endif
             }
         }
         /// <summary>
@@ -48,11 +55,11 @@ namespace _37_2_Павлов_Нейросеть
             _network = new Network(NetworkMode.Demo);
 #endif
         }
-        private int GetInputBitToInt()
+        private double GetInputBitToInt()
         {
-            int i = 0;
+            double i = 0;
             for (int l = 0; l < InputData.Length; l++)
-                i += InputData[l] * (int)Math.Pow(2, l);
+                i += InputData[l] * (double)Math.Pow(2, l);
             return i;
         }
         private string GetInputToStringBit()
@@ -190,6 +197,7 @@ namespace _37_2_Павлов_Нейросеть
         private void button18_Click(object sender, EventArgs e)
         {
             _network.ForwardPass(_network, InputData);
+            NetOutput = _network.fact;
         }
     }
 }

@@ -48,6 +48,9 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         public double[,] WeightInitialize(MemoryMode mm, string path)
         {
             double[,] w = new double[numofneurons, numofprevneurons + 1];
+            char[] delim = { ';', ' ' };
+            string tmpStr = "";
+            string[] tmpStrWeights;
             switch (mm)
             {
                 case MemoryMode.INIT:
@@ -61,18 +64,37 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                             ts += w[i, j];
                         }
                     }
+                    tmpStrWeights = new string[numofneurons];
+
                     ts /= (double)((numofprevneurons + 1) * numofneurons);
-                    for (int i = 0; i < numofneurons; i++)
+                    /*for (int i = 0; i < numofneurons; i++)
                         for (int j = 0; j < numofprevneurons + 1; j++)
+                            w[i, j] -= ts;*/
+                    for (int i = 0; i < numofneurons; i++)
+                    {
+                        tmpStr = w[i, 0].ToString();
+                        for (int j = 1; j < numofprevneurons + 1; j++)
+                        {
                             w[i, j] -= ts;
+                            tmpStr += delim[0].ToString() + w[i, j].ToString();
+                        }
+                        tmpStrWeights[i] = tmpStr;
+                    }
+#if DEBUG
+                    Console.WriteLine(tmpStrWeights[0]);
+#endif
+                    File.AppendAllLines(path, tmpStrWeights);
+
+
                     break;
                 case MemoryMode.GET:
+                    w = WeightInitialize(MemoryMode.INIT, path);
                     string[] lines = File.ReadAllLines(path);
-                    for (int i = 0; i < lines.Length; i++)
+                    for (int i = 0; i < numofneurons; ++i)
                     {
-                        string[] val = lines[i].Split(' ');
-                        for (int j = 0; j < val.Length; j++)
-                            w[i, j] = double.Parse(val[j]);
+                        string[] val = lines[i].Split(delim[0]);
+                        for (int j = 0; j < numofprevneurons + 1; ++j)
+                            w[i, j] = double.Parse(val[j].Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture);
                     }
                     break;
                 case MemoryMode.SET:

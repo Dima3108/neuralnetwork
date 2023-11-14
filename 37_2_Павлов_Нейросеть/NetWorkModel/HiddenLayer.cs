@@ -13,6 +13,7 @@
         public override double[] BackWardPass(double[] stuff)
         {
             double[] gr_sum = new double[numofprevneurons];
+            //расчет локального градиента
             for(int j = 0; j < gr_sum.Length; j++)
             {
                 double sum = 0;
@@ -22,7 +23,12 @@
                 }
                 gr_sum[j] = sum;
             }
-            //код
+
+            //расчет измененияи коррекции весов
+            for(int i = 0; i < numofneurons; i++)
+            {
+
+            }
             return gr_sum;
         }
     }

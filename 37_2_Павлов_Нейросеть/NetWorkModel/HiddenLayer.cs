@@ -13,6 +13,15 @@
         public override double[] BackWardPass(double[] stuff)
         {
             double[] gr_sum = new double[numofprevneurons];
+            for(int j = 0; j < gr_sum.Length; j++)
+            {
+                double sum = 0;
+                for(int k = 0; k < Neurons.Length; k++)
+                {
+                    sum += Neurons[k].weights[j] * Neurons[k].Derivative*stuff[k];
+                }
+                gr_sum[j] = sum;
+            }
             //код
             return gr_sum;
         }

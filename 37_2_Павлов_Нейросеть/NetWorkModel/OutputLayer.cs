@@ -21,6 +21,16 @@
         public override double[] BackWardPass(double[] stuff)
         {
             double[] gr_sum = new double[numofprevneurons + 1];
+            //Вычисление градиентных сумм выходного слоя
+            for(int j = 0;j<gr_sum.Length;j++)
+            {
+                double sum = 0;
+                for(int k = 0; k < Neurons.Length; k++)
+                {
+                    sum += Neurons[k].weights[j] * stuff[k];
+                }
+                gr_sum[j] = sum;
+            }
             return gr_sum;
             //throw new NotImplementedException();
         }

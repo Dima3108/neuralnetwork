@@ -27,7 +27,22 @@
             //расчет измененияи коррекции весов
             for(int i = 0; i < numofneurons; i++)
             {
+                for(int n = 0; n < numofprevneurons + 1; n++)
+                {
+                    double delta_w;
+                    if(n==0)
+                    {
+                        delta_w = momentum * lastdeltaweights[i, 0] + learmingrate * Neurons[i].Derivative * stuff[i];
 
+                    }
+                    else
+                    {
+                        delta_w = momentum * lastdeltaweights[i, n] + learmingrate * Neurons[i].InputData[n - 1] * Neurons[i].Derivative * stuff[i];
+                    }
+                    lastdeltaweights[i, n] = delta_w;
+                    Neurons[i].weights[n] += delta_w;
+                    //Коррекция весов
+                }
             }
             return gr_sum;
         }

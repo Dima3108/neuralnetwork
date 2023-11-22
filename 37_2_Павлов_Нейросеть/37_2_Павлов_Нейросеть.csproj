@@ -55,6 +55,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="NetWorkModel\HiddenLayer.cs" />
     <Compile Include="NetWorkModel\HiddenLayer1.cs" />
     <Compile Include="NetWorkModel\HiddenLayer2.cs" />
     <Compile Include="NetWorkModel\InputLayer.cs" />

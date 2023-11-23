@@ -49,7 +49,7 @@ namespace _37_2_Павлов_Нейросеть
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LabelOutput = new System.Windows.Forms.Label();
             this.button20 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -231,24 +231,29 @@ namespace _37_2_Павлов_Нейросеть
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(383, 282);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
             this.numericUpDown1.TabIndex = 19;
             // 
-            // label1
+            // LabelOutput
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(533, 116);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "label1";
+            this.LabelOutput.AutoSize = true;
+            this.LabelOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelOutput.Location = new System.Drawing.Point(533, 116);
+            this.LabelOutput.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LabelOutput.Name = "LabelOutput";
+            this.LabelOutput.Size = new System.Drawing.Size(0, 38);
+            this.LabelOutput.TabIndex = 20;
             // 
             // button20
             // 
             this.button20.Location = new System.Drawing.Point(8, 82);
-            this.button20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button20.Margin = new System.Windows.Forms.Padding(2);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(85, 76);
             this.button20.TabIndex = 21;
@@ -261,7 +266,7 @@ namespace _37_2_Павлов_Нейросеть
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button20);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LabelOutput);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button19);
             this.Controls.Add(this.button18);
@@ -313,7 +318,7 @@ namespace _37_2_Павлов_Нейросеть
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LabelOutput;
         private System.Windows.Forms.Button button20;
     }
 }

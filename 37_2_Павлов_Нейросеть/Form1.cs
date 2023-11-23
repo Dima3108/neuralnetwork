@@ -30,7 +30,13 @@ namespace _37_2_Павлов_Нейросеть
              }
 #if DEBUG
                 Console.WriteLine($"output log:{ s}");
+  for(int i = 0; i < 10; i++)
+                {
+                    Console.WriteLine($"value {i}:{value[i] * 100.0}%");
+                }
 #endif
+              
+
             }
         }
         /// <summary>

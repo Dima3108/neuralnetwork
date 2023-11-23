@@ -231,6 +231,11 @@ namespace _37_2_Павлов_Нейросеть
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(383, 282);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
             this.numericUpDown1.TabIndex = 19;
@@ -248,7 +253,7 @@ namespace _37_2_Павлов_Нейросеть
             // button20
             // 
             this.button20.Location = new System.Drawing.Point(8, 82);
-            this.button20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button20.Margin = new System.Windows.Forms.Padding(2);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(85, 76);
             this.button20.TabIndex = 21;

@@ -12,6 +12,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         public InputLayer(NetworkMode networkMode, Layer _n = null) : base(15, 1, TypeNeuron.InputNeuron, nameof(InputLayer), _n) {
             switch (networkMode)
             {
+                //считывание обучающего массива и его загрузка
                 case NetworkMode.Train:break;
                 case NetworkMode.Test:break;
             }

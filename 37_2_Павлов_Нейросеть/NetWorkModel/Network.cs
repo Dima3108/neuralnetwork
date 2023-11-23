@@ -24,5 +24,15 @@
             net._hiddenLayer2.Recognaize(null, net._outputLayer);
             net._outputLayer.Recognaize(net, null);
         }
+        //Обучение
+        public void Train(Network net)
+        {
+            int epoches = 70;//кол-во эпох обучения
+            net._inputLayer = new InputLayer(NetworkMode.Train);
+            double tmpSumError;//временная переменная суммы ошибок
+            double[] errors;
+            double[] tmp_gsums1,tmp_gsums2;//массивы локальныхградиентов 1 nad 2 hidden Lauyer
+
+        }
     }
 }

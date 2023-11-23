@@ -198,6 +198,7 @@ namespace _37_2_Павлов_Нейросеть
             this.button16.TabIndex = 15;
             this.button16.Text = "обучение";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button17
             // 

@@ -22,8 +22,9 @@ namespace _37_2_Павлов_Нейросеть
                 // List<double> ol = new List<double>();
                 string vla = value.ToList().IndexOf(value.Max()).ToString();
 
-                MessageBox.Show(vla);
-                label1.Text = vla;
+                // MessageBox.Show(vla);
+               // LabelOutput.Text = vla;
+                LabelOutput.Text = vla;
                 string s = "";
                 foreach(var v in value){
                   s+=  v.ToString()+" ";
@@ -98,9 +99,9 @@ namespace _37_2_Павлов_Нейросеть
                         NumbersButtons[a].BackColor = Color.Black;
                         InputData[a] = 0;
                     }
-#if DEBUG
+#if false
 
-                    label1.Text = GetInputBitToInt().ToString();
+                    LabelOutput.Text = GetInputBitToInt().ToString();
 
 #endif
                 };

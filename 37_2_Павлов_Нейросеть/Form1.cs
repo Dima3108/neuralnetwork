@@ -206,5 +206,15 @@ namespace _37_2_Павлов_Нейросеть
             _network.ForwardPass(_network, InputData);
             NetOutput = _network.fact;
         }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

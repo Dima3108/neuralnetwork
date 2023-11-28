@@ -210,7 +210,8 @@ namespace _37_2_Павлов_Нейросеть
         //обучение
         private void button16_Click(object sender, EventArgs e)
         {
-          //  _network.Tarin(_network);
+            _network.Train(_network);
+
         }
     }
 }

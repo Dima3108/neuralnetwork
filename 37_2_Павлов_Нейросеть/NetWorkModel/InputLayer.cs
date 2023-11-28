@@ -2,27 +2,34 @@
 
 namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
-    public class InputLayer : Layer
+    public class InputLayer
     {
         private Random random = new Random();//для случайности обуч примеров в новой эпохе
         //поля
         private (double[], int)[] trainset = new (double[], int)[100];
         public (double[], int)[] Trainset { get => trainset; }
 #if DEBUG
-        public InputLayer(NetworkMode networkMode, Layer _n = null) : base(15, 1, TypeNeuron.InputNeuron, nameof(InputLayer), _n) {
+        public InputLayer(NetworkMode networkMode) 
+        {
             switch (networkMode)
             {
-                //считывание обучающего массива и его загрузка
-                case NetworkMode.Train:break;
-                case NetworkMode.Test:break;
+                case NetworkMode.Train:
+                    //Считывание примеров из  фала 
+                    break;
+                case NetworkMode.Test:
+                    break;
+                case NetworkMode.Demo:
+                    break;
+                default:
+                    break;
             }
         }
-        public override double[] BackWardPass(double[] stuff)
+        public  double[] BackWardPass(double[] stuff)
         {
             throw new NotImplementedException();
 
         }
-        public override void Recognaize(Network net, Layer _next)
+        public  void Recognaize(Network net, Layer _next)
         {
             throw new NotImplementedException();
         }

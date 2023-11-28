@@ -14,7 +14,23 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
             switch (networkMode)
             {
                 case NetworkMode.Train:
-                    //Считывание примеров из  фала 
+                    //Считывание примеров из  файла 
+                    using(System.IO.StreamReader reader=new System.IO.StreamReader("fortrainsample.txt"))
+                    {
+                        string line = "";
+                        while((line = reader.ReadLine()) != null)
+                        {
+
+                        }
+                    }
+                    for(int n = trainset.Length - 1; n >= 1; n--)
+                    {
+                        int j = random.Next(n + 1);
+                        var temp = trainset[n];
+                        trainset[n]=trainset[j];
+                        trainset[j]=temp;
+                    }
+                    //перемешать обучающий пример
                     break;
                 case NetworkMode.Test:
                     break;

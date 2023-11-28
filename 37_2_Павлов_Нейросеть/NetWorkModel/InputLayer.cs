@@ -18,9 +18,19 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                     using(System.IO.StreamReader reader=new System.IO.StreamReader("fortrainsample.txt"))
                     {
                         string line = "";
+                        int pos = 0;
                         while((line = reader.ReadLine()) != null)
                         {
-
+                            trainset[pos].Item1 = new double[15];
+                            char []chars= line.ToCharArray();
+                            for(int i = 1; i < 16; i++)
+                            {
+Console.WriteLine(chars[(2*i)]);
+                                trainset[pos].Item1[i - 1] = Double.Parse(chars[2 * i].ToString());
+                                
+                            }
+                            trainset[pos].Item2 = Convert.ToInt32(chars[0]);
+                            pos++;
                         }
                     }
                     for(int n = trainset.Length - 1; n >= 1; n--)

@@ -1,4 +1,6 @@
-﻿namespace _37_2_Павлов_Нейросеть.NetWorkModel
+﻿using System;
+
+namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
     public class Network
     {
@@ -27,6 +29,12 @@
             net._hiddenLayer2.Recognaize(null, net._outputLayer);
             net._outputLayer.Recognaize(net, null);
         }
+        //анонимные функции
+        /// <summary>
+        /// https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/operators/lambda-expressions
+        /// </summary>
+        public Action<int, double> PrintXY { set; private get; }
+        public Action Clear;
         //Обучение
         public void Train(Network net)
         {
@@ -35,9 +43,11 @@
             double tmpSumError;//временная переменная суммы ошибок
             double[] errors;
             double[] tmp_gsums1,tmp_gsums2;//массивы локальныхградиентов 1 nad 2 hidden Lauyer
+              Clear();
             for(int k=0; k<epoches; k++)
             {
                 e_error_avr = 0;
+              
                 for(int i = 0; i < net._inputLayer.Trainset.Length; i++)
                 {
                     //прямой проход
@@ -69,7 +79,7 @@
                 }
                 e_error_avr /= net._inputLayer.Trainset.Length;//среднне значение энергии ошибки 1 эпохи
                 //написать код прередачи энергии ошибки эпохи на график и обновить график
-
+                this.PrintXY(k, e_error_avr);
             }
             net._inputLayer = null;//обнуление входного слоя
             //запись скорректированных весов в файл

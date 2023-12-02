@@ -141,7 +141,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         /// путь к катологу
         /// </summary>
         string pathDirWeights;
-        public string pathFileWeights { get; private set; };
+        public string pathFileWeights { get; private set; }
         protected int numofneurons { get => neurons.Length; }
         /// <summary>
         /// кол-во пред нейронов

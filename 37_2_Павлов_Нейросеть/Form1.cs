@@ -61,6 +61,27 @@ namespace _37_2_Павлов_Нейросеть
 #if DEBUG
             _network = new Network(NetworkMode.Demo);
 #endif
+            #region ИнициализацияГрафикаНейросети
+          //  TrainingSchedule.Series["Series1"].
+            _network.PrintXY = (x, y) =>
+            {
+                ///https://itarticle.ru/graphics-csharp/
+                ///https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.forms.datavisualization.charting.chart?view=netframework-4.8.1
+                TrainingSchedule.Series["Series1"].Points.AddXY(x, y);
+#if DEBUG
+                Console.WriteLine("display_seXY");
+#endif
+            };
+            _network.Clear = () =>
+            {
+                ///https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.forms.datavisualization.charting.series?view=netframework-4.8.1
+#if DEBUG
+                Console.WriteLine("display_clear");
+#endif
+                TrainingSchedule.Series["Series1"].ResetIsValueShownAsLabel();
+               // TrainingSchedule.Series["Series1"].
+            };
+            #endregion
         }
         private double GetInputBitToInt()
         {
@@ -205,6 +226,7 @@ namespace _37_2_Павлов_Нейросеть
         {
             _network.ForwardPass(_network, InputData);
             NetOutput = _network.fact;
+            //TrainingSchedule.Series.
         }
       
         //обучение

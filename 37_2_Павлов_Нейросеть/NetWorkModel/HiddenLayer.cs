@@ -39,7 +39,7 @@
                     {
                         delta_w = momentum * lastdeltaweights[i, n] + learmingrate * Neurons[i].InputData[n - 1] * Neurons[i].Derivative * stuff[i];
                     }
-                    lastdeltaweights[i, n] = delta_w;
+                    lastdeltaweights[i, n] += delta_w;
                     Neurons[i].weights[n] += delta_w;
                     //Коррекция весов
                 }

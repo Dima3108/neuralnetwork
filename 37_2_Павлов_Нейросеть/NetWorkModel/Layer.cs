@@ -88,7 +88,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
 
                     break;
                 case MemoryMode.GET:
-                    w = WeightInitialize(MemoryMode.INIT, path);
+                   // w = WeightInitialize(MemoryMode.INIT, path);
                     string[] lines = File.ReadAllLines(path);
                     for (int i = 0; i < numofneurons; ++i)
                     {
@@ -98,6 +98,27 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                     }
                     break;
                 case MemoryMode.SET:
+                    //w = new double[numofneurons, numofneurons + 1];
+                    for(int i=0;i<numofneurons;i++)
+                        for(int j = 0; j < numofprevneurons + 1; j++)
+                        {
+                            w[i,j]=Neurons[i].weights[j];
+
+                        }
+
+                    File.Delete(path);
+                    tmpStrWeights = new string[numofneurons];
+                    for (int i = 0; i < numofneurons; i++)
+                    {
+                        tmpStr = w[i, 0].ToString();
+                        for (int j = 1; j < numofprevneurons + 1; j++)
+                        {
+                           // w[i, j] -= ts;
+                            tmpStr += delim[0].ToString() + w[i, j].ToString();
+                        }
+                        tmpStrWeights[i] = tmpStr;
+                    }
+                    File.AppendAllLines(path, tmpStrWeights);
                     //Здесь другая функция
                     break;
                     // return w;
@@ -155,7 +176,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         /// <summary>
         /// Скорость обучения
         /// </summary>
-        protected const double learmingrate = 0.5;
+        protected const double learmingrate = 0.0001;
         protected const double momentum = 0.05d;
     }
 }

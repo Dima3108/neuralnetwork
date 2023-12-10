@@ -35,15 +35,25 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         /// </summary>
         public Action<int, double> PrintXY { set; private get; }
         public Action Clear;
+        /// <summary>
+        /// int-size
+        /// float x_min
+        /// float x_max
+        /// float y_min
+        /// float y_max
+        /// </summary>
+        public Action<int,float,float,float,float> Init { set; private get; }
+        public Action Print { set; get; }
         //Обучение
         public void Train(Network net)
         {
-            int epoches = 200;//кол-во эпох обучения(было 70)
+            int epoches = 400;//кол-во эпох обучения(было 70)
             net._inputLayer = new InputLayer(NetworkMode.Train);//инициализация входного слоя для формирования обучающего множества
             double tmpSumError;//временная переменная суммы ошибок
             double[] errors;
             double[] tmp_gsums1,tmp_gsums2;//массивы локальныхградиентов 1 nad 2 hidden Lauyer
               Clear();
+            Init(epoches,0,epoches,-1,1);
             for(int k=0; k<epoches; k++)
             {
                 e_error_avr = 0;
@@ -81,6 +91,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                 //написать код прередачи энергии ошибки эпохи на график и обновить график
                 this.PrintXY(k, e_error_avr);
             }
+            Print();
             net._inputLayer = null;//обнуление входного слоя
             //запись скорректированных весов в файл
             net._hiddenLayer1.WeightInitialize(MemoryMode.SET, net._hiddenLayer1.pathFileWeights);

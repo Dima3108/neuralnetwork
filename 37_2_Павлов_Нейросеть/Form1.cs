@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.Linq;
+using SharpGL;
 namespace _37_2_Павлов_Нейросеть
 {
     public partial class Form1 : Form
@@ -44,9 +45,18 @@ namespace _37_2_Павлов_Нейросеть
         /// Защита от дублирования
         /// </summary>
         private SecurityRead secReader;
-#if DEBUG
+#if true
         Network _network;
 #endif
+        /// <summary>
+        /// Для графика функций
+        /// </summary>
+        private float[] X, Y;
+        private int point_pos;
+        float X_MIN,Y_MIN,X_MAX,Y_MAX,INP_ONE_PROC_X,INP_ONE_PROC_Y,OUTPUT_ONE_PROC_X,OUTPUT_ONE_PROC_Y;
+        #region OpenGL
+       
+        #endregion
         public Form1()
         {
             InitializeComponent();
@@ -58,16 +68,42 @@ namespace _37_2_Павлов_Нейросеть
             #region ЗащитаОтДублирования
             secReader = new SecurityRead(pathMyApp);
             #endregion
-#if DEBUG
+#if true
             _network = new Network(NetworkMode.Demo);
 #endif
             #region ИнициализацияГрафикаНейросети
-          //  TrainingSchedule.Series["Series1"].
+            //  TrainingSchedule.Series["Series1"].
+            #region OpenGL_help
+
+            _network.Init = (s,xmin,xmax,ymin,ymax) =>
+            {
+                X = new float[s];
+                Y=new float[s];
+                point_pos = 0;
+                X_MAX = xmax;
+                X_MIN = xmin;
+                Y_MAX = ymax;
+                Y_MIN = ymin;
+                INP_ONE_PROC_X = (X_MAX - X_MIN) / 100;
+                INP_ONE_PROC_Y = (Y_MAX - Y_MIN) / 100;
+                OUTPUT_ONE_PROC_X = openGLControl1.Width / 100;
+                OUTPUT_ONE_PROC_Y=openGLControl1.Height / 100;
+            };
+            _network.Print = () =>
+            {
+
+               
+            };
+            #endregion
             _network.PrintXY = (x, y) =>
             {
                 ///https://itarticle.ru/graphics-csharp/
                 ///https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.forms.datavisualization.charting.chart?view=netframework-4.8.1
                 TrainingSchedule.Series["Series1"].Points.AddXY(x, y);
+                float proc_x = (X_MAX-x) / INP_ONE_PROC_X;
+                float proc_y = (Y_MAX - (float)y) / INP_ONE_PROC_Y;
+                X[point_pos] = OUTPUT_ONE_PROC_X*proc_x;
+                Y[point_pos++] =OUTPUT_ONE_PROC_Y*proc_y;
 #if false
                 Console.WriteLine("display_seXY");
 #endif
@@ -228,7 +264,31 @@ namespace _37_2_Павлов_Нейросеть
             NetOutput = _network.fact;
             //TrainingSchedule.Series.
         }
-      
+
+        private void openGLControl1_OpenGLDraw(object sender, RenderEventArgs args)
+        {
+            // _network.Print();
+            if (X != null && Y != null)
+            {
+                OpenGL openGL = openGLControl1.OpenGL;
+
+                openGL.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+
+                // Сбрасываем модельно-видовую матрицу
+                openGL.LoadIdentity();
+                // Двигаем перо вглубь экрана
+                openGL.Translate(1.0f, 1.0f, 0.0f);
+                openGL.Begin(SharpGL.Enumerations.BeginMode.LineStrip);
+                openGL.PointSize(1);
+                openGL.Color(1f, 1f, 1f);
+                for (int i = 0; i < X.Length; i++)
+                    openGL.Vertex(X[i], Y[i], 0);
+                openGL.End();
+                openGL.Flush();
+                openGLControl1.Invalidate();
+            }
+        }
+
         //обучение
         private void button16_Click(object sender, EventArgs e)
         {

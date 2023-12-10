@@ -9,7 +9,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         //поля
         private (double[], int)[] trainset = new (double[], int)[100];
         public (double[], int)[] Trainset { get => trainset; }
-#if DEBUG
+#if true
         public InputLayer(NetworkMode networkMode) 
         {
             switch (networkMode)

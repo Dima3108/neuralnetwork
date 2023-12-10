@@ -20,3 +20,11 @@ Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\Debug\37_2
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.exe
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.pdb
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.csproj.SuggestedBindingRedirects.cache
+Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\Debug\SharpGL.dll
+Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\Debug\SharpGL.SceneGraph.dll
+Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\Debug\SharpGL.WinForms.dll
+Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\Debug\System.Drawing.Common.dll
+Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\Debug\SharpGL.pdb
+Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\Debug\SharpGL.SceneGraph.pdb
+Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\Debug\SharpGL.WinForms.pdb
+Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\Debug\37_2_Павлов_Нейросеть.csproj.CopyComplete

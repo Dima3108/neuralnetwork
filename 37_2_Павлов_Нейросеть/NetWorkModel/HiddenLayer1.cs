@@ -4,7 +4,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
     public class HiddenLayer1 : Layer
     {
-#if DEBUG
+#if true
         /// <summary>
         /// 
         /// </summary>

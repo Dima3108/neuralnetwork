@@ -80,7 +80,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                         }
                         tmpStrWeights[i] = tmpStr;
                     }
-#if DEBUG
+#if true
                     Console.WriteLine(tmpStrWeights[0]);
 #endif
                     File.AppendAllLines(path, tmpStrWeights);

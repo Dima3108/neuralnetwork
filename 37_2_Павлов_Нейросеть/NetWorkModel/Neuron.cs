@@ -34,11 +34,11 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                     break;
             }
         }
-        private double LogicFunc(double x) => 1.00 / (1.00 + Math.Exp(-x));
+        private double LogicFunc(double x) => 1.00000000 / (1.000000 + Math.Exp(-x));
         private double LogicFuncDerivative(double x)
         {
             double val = LogicFunc(x);
-            return val * (1.00 - val);
+            return val * (1.000000000000 - val);
         }
     }
 }

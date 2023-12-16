@@ -183,7 +183,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         /// <summary>
         /// Скорость обучения
         /// </summary>
-        protected const double learmingrate = 0.001;
-        protected const double momentum = 0.005d;
+        protected const double learmingrate = 0.0001;
+        protected const double momentum = 0.003d;
     }
 }

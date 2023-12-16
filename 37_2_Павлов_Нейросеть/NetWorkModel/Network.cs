@@ -47,7 +47,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         //Обучение
         public void Train(Network net)
         {
-            int epoches = 1500;//кол-во эпох обучения(было 70)
+            int epoches = 1000;//кол-во эпох обучения(было 70)
             net._inputLayer = new InputLayer(NetworkMode.Train);//инициализация входного слоя для формирования обучающего множества
             double tmpSumError;//временная переменная суммы ошибок
             double[] errors;

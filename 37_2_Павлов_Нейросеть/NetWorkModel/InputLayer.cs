@@ -39,7 +39,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                     }
                     trainset = new (double[], int)[cesh.Count];
                     cesh.CopyTo(trainset);
-                    for(int n = trainset.Length - 1; n >= 1; n--)
+                    for(int n = trainset.Length - 1; n >= 0; n--)
                     {
                         int j = random.Next(n + 1);
                         var temp = trainset[n];

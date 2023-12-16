@@ -29,16 +29,16 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                     _derivative = LogicFuncDerivative(sum);
                     break;
                 case TypeNeuron.OutputNeuron:
-                    _output = Math.Pow(Math.E, sum);
+                    _output = Math.Exp(sum);
 
                     break;
             }
         }
-        private double LogicFunc(double x) => 1 / (1 + Math.Pow(Math.E, -x));
+        private double LogicFunc(double x) => 1.00 / (1.00 + Math.Exp(-x));
         private double LogicFuncDerivative(double x)
         {
             double val = LogicFunc(x);
-            return val * (1 - val);
+            return val * (1.00 - val);
         }
     }
 }

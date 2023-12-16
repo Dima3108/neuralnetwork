@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
+
 namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
     public abstract class Layer
@@ -93,18 +95,22 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                     for (int i = 0; i < numofneurons; ++i)
                     {
                         string[] val = lines[i].Split(delim[0]);
-                        for (int j = 0; j < numofprevneurons + 1; ++j)
+                        for (int j = 0; j < numofprevneurons + 1;++j)
                             w[i, j] = double.Parse(val[j].Replace(',', '.'), System.Globalization.CultureInfo.InvariantCulture);
                     }
                     break;
                 case MemoryMode.SET:
                     //w = new double[numofneurons, numofneurons + 1];
-                    for(int i=0;i<numofneurons;i++)
+                    for(int i = 0; i < numofneurons; i++)
+                    {
+
                         for(int j = 0; j < numofprevneurons + 1; j++)
                         {
                             w[i,j]=Neurons[i].weights[j];
 
                         }
+                    }
+                       
 
                     File.Delete(path);
                     tmpStrWeights = new string[numofneurons];
@@ -140,11 +146,12 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         {
             set
             {
-                for (int i = 0; i < Neurons.Length; i++)
+                // for (int i = 0; i < Neurons.Length; i++)
+                Parallel.For(0, Neurons.Length,(i)=>
                 {
                     Neurons[i].InputData = value;
                     Neurons[i].Activator(Neurons[i].InputData, Neurons[i].weights);
-                }
+                });
 
 
 
@@ -176,7 +183,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         /// <summary>
         /// Скорость обучения
         /// </summary>
-        protected const double learmingrate = 0.0001;
-        protected const double momentum = 0.05d;
+        protected const double learmingrate = 0.001;
+        protected const double momentum = 0.005d;
     }
 }

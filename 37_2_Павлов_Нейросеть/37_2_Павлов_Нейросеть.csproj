@@ -121,6 +121,9 @@
     <Content Include="fortrainsample.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="fortrainsample1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SharpGL.dll" />
     <Content Include="SharpGL.pdb" />
     <Content Include="SharpGL.SceneGraph.dll" />

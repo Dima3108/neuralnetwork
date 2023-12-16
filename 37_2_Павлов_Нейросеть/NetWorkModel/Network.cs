@@ -47,13 +47,14 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         //Обучение
         public void Train(Network net)
         {
-            int epoches = 400;//кол-во эпох обучения(было 70)
+            int epoches = 1500;//кол-во эпох обучения(было 70)
             net._inputLayer = new InputLayer(NetworkMode.Train);//инициализация входного слоя для формирования обучающего множества
             double tmpSumError;//временная переменная суммы ошибок
             double[] errors;
             double[] tmp_gsums1,tmp_gsums2;//массивы локальныхградиентов 1 nad 2 hidden Lauyer
               Clear();
-            Init(epoches,0,epoches,-1,1);
+            Init(epoches,0,epoches,0,1);
+
             for(int k=0; k<epoches; k++)
             {
                 e_error_avr = 0;
@@ -70,14 +71,14 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                         //дельтапраило
                         if (x==net._inputLayer.Trainset[i].Item2)
                         {
-                            errors[x] = -(net.fact[x] - 1.0);//нахождение ошибки
+                            errors[x] = -(net.fact[x] - 1);//нахождение ошибки
 
                         }
                         else
                         {
                             errors[x] = -net.fact[x];//желаймый 0
                         }
-                        tmpSumError+=errors[x]*errors[x]/2.0; 
+                        tmpSumError+=errors[x]*errors[x]/2; 
                     }
                     //ошибка по эпох
                     e_error_avr += tmpSumError / errors.Length;//суммарное значение энергии ошибки эпох

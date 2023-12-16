@@ -1,4 +1,6 @@
-﻿namespace _37_2_Павлов_Нейросеть.NetWorkModel
+﻿using System.Threading.Tasks;
+
+namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
     public class OutputLayer : Layer
     {
@@ -22,21 +24,23 @@
         {
             double[] gr_sum = new double[numofprevneurons + 1];
             //Вычисление градиентных сумм выходного слоя
-            for(int j = 0;j<gr_sum.Length;j++)
+            // for(int j = 0;j<gr_sum.Length;j++)
+            Parallel.For(0, gr_sum.Length, j =>
             {
                 double sum = 0;
-                for(int k = 0; k < Neurons.Length; k++)
+                for (int k = 0; k < Neurons.Length; k++)
                 {
                     sum += Neurons[k].weights[j] * stuff[k];
                 }
                 gr_sum[j] = sum;
-            }
+            });
             for (int i = 0; i < numofneurons; i++)
+           // Parallel.For(0, numofneurons, i =>
             {
-                for(int n = 0; n < numofprevneurons + 1; n++)
+                for (int n = 0; n < numofprevneurons + 1; n++)
                 {
                     double delta_w;
-                    if(n==0)
+                    if (n == 0)
                     {
                         delta_w = momentum * lastdeltaweights[i, 0] + learmingrate * stuff[i];
                     }
@@ -49,6 +53,7 @@
                     //коррекция весов
                 }
             }
+            //);
             return gr_sum;
             //throw new NotImplementedException();
         }

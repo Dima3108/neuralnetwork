@@ -30,7 +30,7 @@ namespace _37_2_Павлов_Нейросеть
                 foreach(var v in value){
                   s+=  v.ToString()+" ";
              }
-#if DEBUG
+#if true
                 Console.WriteLine($"output log:{ s}");
   for(int i = 0; i < 10; i++)
                 {
@@ -102,8 +102,8 @@ namespace _37_2_Павлов_Нейросеть
                 TrainingSchedule.Series["Series1"].Points.AddXY(x, y);
                 float proc_x = (X_MAX-x) / INP_ONE_PROC_X;
                 float proc_y = (Y_MAX - (float)y) / INP_ONE_PROC_Y;
-                X[point_pos] = OUTPUT_ONE_PROC_X*proc_x;
-                Y[point_pos++] =OUTPUT_ONE_PROC_Y*proc_y;
+                X[point_pos] = x; //OUTPUT_ONE_PROC_X*proc_x;
+                Y[point_pos++] = (float)y;//OUTPUT_ONE_PROC_Y*proc_y;
 #if false
                 Console.WriteLine("display_seXY");
 #endif
@@ -126,6 +126,12 @@ namespace _37_2_Павлов_Нейросеть
                 i += InputData[l] * (double)Math.Pow(2, l);
             return i;
         }
+
+        private void openGLControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private string GetInputToStringBit()
         {
             string s = "";
@@ -277,15 +283,15 @@ namespace _37_2_Павлов_Нейросеть
                 // Сбрасываем модельно-видовую матрицу
                 openGL.LoadIdentity();
                 // Двигаем перо вглубь экрана
-                openGL.Translate(1.0f, 1.0f, 0.0f);
-                openGL.Begin(SharpGL.Enumerations.BeginMode.LineStrip);
-                openGL.PointSize(1);
+                //openGL.Translate(1.0f, 1.0f, 0.0f);
+                openGL.Begin(SharpGL.Enumerations.BeginMode.Points);
+                openGL.PointSize(1f);
                 openGL.Color(1f, 1f, 1f);
                 for (int i = 0; i < X.Length; i++)
-                    openGL.Vertex(X[i], Y[i], 0);
+                    openGL.Vertex(X[i], Y[i], 0.0f);
                 openGL.End();
-                openGL.Flush();
-                openGLControl1.Invalidate();
+                //openGL.Flush();
+               // openGLControl1.Invalidate();
             }
         }
 

@@ -1,4 +1,3 @@
-Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\x64\Debug\fortrainsample.txt
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\x64\Debug\37_2_Павлов_Нейросеть.exe.config
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\x64\Debug\37_2_Павлов_Нейросеть.exe
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\x64\Debug\37_2_Павлов_Нейросеть.pdb
@@ -18,3 +17,5 @@ Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\x64\Debug\
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\x64\Debug\37_2_Павлов_Нейросеть.csproj.CopyComplete
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\x64\Debug\37_2_Павлов_Нейросеть.exe
 Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\obj\x64\Debug\37_2_Павлов_Нейросеть.pdb
+Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\x64\Debug\fortrainsample1.txt
+Q:\github_repo\neuralnetwork\37_2_Павлов_Нейросеть\bin\x64\Debug\fortrainsample.txt

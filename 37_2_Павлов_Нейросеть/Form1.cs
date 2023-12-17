@@ -77,7 +77,7 @@ namespace _37_2_Павлов_Нейросеть
 
             _network.Init = (s,xmin,xmax,ymin,ymax) =>
             {
-                X = new float[s];
+               /* X = new float[s];
                 Y=new float[s];
                 point_pos = 0;
                 X_MAX = xmax;
@@ -87,7 +87,7 @@ namespace _37_2_Павлов_Нейросеть
                 INP_ONE_PROC_X = (X_MAX - X_MIN) / 100;
                 INP_ONE_PROC_Y = (Y_MAX - Y_MIN) / 100;
                 OUTPUT_ONE_PROC_X = openGLControl1.Width / 100;
-                OUTPUT_ONE_PROC_Y=openGLControl1.Height / 100;
+                OUTPUT_ONE_PROC_Y=openGLControl1.Height / 100;*/
             };
             _network.Print = () =>
             {
@@ -100,10 +100,10 @@ namespace _37_2_Павлов_Нейросеть
                 ///https://itarticle.ru/graphics-csharp/
                 ///https://learn.microsoft.com/ru-ru/dotnet/api/system.windows.forms.datavisualization.charting.chart?view=netframework-4.8.1
                 TrainingSchedule.Series["Series1"].Points.AddXY(x, y);
-                float proc_x = (X_MAX-x) / INP_ONE_PROC_X;
+               /* float proc_x = (X_MAX-x) / INP_ONE_PROC_X;
                 float proc_y = (Y_MAX - (float)y) / INP_ONE_PROC_Y;
                 X[point_pos] = x; //OUTPUT_ONE_PROC_X*proc_x;
-                Y[point_pos++] = (float)y;//OUTPUT_ONE_PROC_Y*proc_y;
+                Y[point_pos++] = (float)y;//OUTPUT_ONE_PROC_Y*proc_y;*/
 #if false
                 Console.WriteLine("display_seXY");
 #endif

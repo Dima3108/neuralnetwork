@@ -17,6 +17,23 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
             _type = type;
             weights = _weights;
         }
+        public unsafe void Activator(double *inpt,int iLength,double[] wght)
+        {
+            double sum = wght[0];
+            for (int m = 0; m < iLength; ++m)
+                sum += inpt[m] * wght[m + 1];
+            switch (_type)
+            {
+                case TypeNeuron.HiddenNeuron:
+                    _output = LogicFunc(sum);
+                    _derivative = LogicFuncDerivative(sum);
+                    break;
+                case TypeNeuron.OutputNeuron:
+                    _output = Math.Exp(sum);
+
+                    break;
+            }
+        }
         public void Activator(double[] inpt, double[] wght)
         {
             double sum = wght[0];

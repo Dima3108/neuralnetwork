@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-
+using System.Threading;
 namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
     public abstract class Layer
@@ -142,16 +142,64 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
             get => neurons;
             set => neurons = value;
         }
+        private double[] data_cesh;
+        private int _Length, _Offset;
+        private  void Thread_Compute(object id)
+        {
+            int i=Convert.ToInt32(id);
+
+           
+               // unsafe
+                {
+                   // fixed(double* idat = data_cesh)
+                    {
+                          while (i < _Length)
+                          {
+                        //Neurons[i].InputData = data_cesh;
+                        if (Neurons[i].InputData == null || Neurons[i].InputData.Length!=data_cesh.Length)
+                            Neurons[i].InputData=new double[data_cesh.Length];
+                        for (int t = 0; t < data_cesh.Length; t++)
+                            Neurons[i].InputData[t] = data_cesh[t];
+                        Neurons[i].Activator(Neurons[i].InputData, Neurons[i].weights); 
+                                i += _Offset; 
+                          }
+                    }
+                }
+               
+               
+            
+        }
+        // private Thread thread_one=new Thread(new ThreadStart(Thread_Compute))
+        private Thread[] threads;
         public double[] Data
         {
             set
             {
+                data_cesh=new double[value.Length];
+                value.CopyTo(data_cesh,0);
+               // Thread[] threads = new Thread[4];
+
+                _Offset = 16;
+                _Length = Neurons.Length;
+                Parallel.For(0, _Offset, idx =>
+                {
+                    int i = idx;
+                    while(i< Neurons.Length)
+                    {
+                        //Neurons[i].InputData = value;
+                        if (Neurons[i].InputData == null || Neurons[i].InputData.Length != value.Length)
+                            Neurons[i].InputData = new double[value.Length];
+                        value.CopyTo(Neurons[i].InputData, 0);
+                        Neurons[i].Activator(value, Neurons[i].weights);
+                        i += _Offset;
+                    }
+                });
                 // for (int i = 0; i < Neurons.Length; i++)
-                Parallel.For(0, Neurons.Length,(i)=>
+                /*Parallel.For(0, Neurons.Length,(i)=>
                 {
                     Neurons[i].InputData = value;
                     Neurons[i].Activator(Neurons[i].InputData, Neurons[i].weights);
-                });
+                });*/
 
 
 
@@ -183,7 +231,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         /// <summary>
         /// Скорость обучения
         /// </summary>
-        protected const double learmingrate = 0.0001;
-        protected const double momentum = 0.003d;
+        protected const double learmingrate = 0.00001;
+        protected const double momentum = 0.0015d;
     }
 }

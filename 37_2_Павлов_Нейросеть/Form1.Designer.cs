@@ -29,9 +29,9 @@ namespace _37_2_Павлов_Нейросеть
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -288,19 +288,19 @@ namespace _37_2_Павлов_Нейросеть
             // 
             // TrainingSchedule
             // 
-            chartArea5.Name = "ChartArea1";
-            this.TrainingSchedule.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.TrainingSchedule.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.TrainingSchedule.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.TrainingSchedule.Legends.Add(legend1);
             this.TrainingSchedule.Location = new System.Drawing.Point(546, 29);
             this.TrainingSchedule.Name = "TrainingSchedule";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            series5.Legend = "Legend1";
-            series5.LegendText = "training schedule";
-            series5.Name = "Series1";
-            this.TrainingSchedule.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            series1.Legend = "Legend1";
+            series1.LegendText = "training schedule";
+            series1.Name = "Series1";
+            this.TrainingSchedule.Series.Add(series1);
             this.TrainingSchedule.Size = new System.Drawing.Size(903, 468);
             this.TrainingSchedule.TabIndex = 22;
             this.TrainingSchedule.Text = "график обучения";
@@ -318,6 +318,7 @@ namespace _37_2_Павлов_Нейросеть
             this.openGLControl1.RenderTrigger = SharpGL.RenderTrigger.TimerBased;
             this.openGLControl1.Size = new System.Drawing.Size(2392, 573);
             this.openGLControl1.TabIndex = 23;
+            this.openGLControl1.Visible = false;
             this.openGLControl1.OpenGLDraw += new SharpGL.RenderEventHandler(this.openGLControl1_OpenGLDraw);
             this.openGLControl1.Load += new System.EventHandler(this.openGLControl1_Load);
             // 

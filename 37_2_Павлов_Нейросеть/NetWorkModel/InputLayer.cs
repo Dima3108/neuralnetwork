@@ -9,36 +9,53 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         //поля
         private (double[], int)[] trainset = new (double[], int)[100];
         public (double[], int)[] Trainset { get => trainset; }
+        private List<(double[], int)> cesh;
 #if true
         public InputLayer(NetworkMode networkMode) 
         {
             switch (networkMode)
             {
                 case NetworkMode.Train:
-                    List<(double[], int)> cesh = new System.Collections.Generic.List<(double[], int)>();
-                    //Считывание примеров из  файла 
-                    using(System.IO.StreamReader reader=new System.IO.StreamReader("fortrainsample.txt"))
+                    int c_len = 0;
+                    string line = "";
+                    using (System.IO.StreamReader reader = new System.IO.StreamReader("fortrainsample.txt"))
                     {
-                        string line = "";
-                        int pos = 0;
-                        while((line = reader.ReadLine()) != null)
+                        while (( reader.ReadLine()) != null)
                         {
-                            // trainset[pos].Item1 = new double[15];
-                            var cesh_d = new double[15];
-                            char []chars= line.ToCharArray();
-                            for(int i = 1; i < 16; i++)
-                            {
-//Console.WriteLine(chars[(2*i)]);
-                                // trainset[pos].Item1[i - 1] = Double.Parse(chars[2 * i].ToString());
-                                cesh_d[i - 1] = Double.Parse(chars[2 * i].ToString());
-                            }
-                            // trainset[pos].Item2 = Convert.ToInt32(chars[0]);
-                            // pos++;
-                            cesh.Add((cesh_d, Convert.ToInt32(chars[0])));
+                            c_len++;
                         }
                     }
-                    trainset = new (double[], int)[cesh.Count];
-                    cesh.CopyTo(trainset);
+                        if (cesh == null||cesh.Count!=c_len)
+                    {
+                        cesh = new System.Collections.Generic.List<(double[], int)>();
+                        //Считывание примеров из  файла 
+                        using (System.IO.StreamReader reader = new System.IO.StreamReader("fortrainsample.txt"))
+                        {
+                            
+                            //int pos = 0;
+                            while ((line = reader.ReadLine()) != null)
+                            {
+                                // trainset[pos].Item1 = new double[15];
+                                var cesh_d = new double[15];
+                                char[] chars = line.ToCharArray();
+                                for (int i = 1; i < 16; i++)
+                                {
+                                    //Console.WriteLine(chars[(2*i)]);
+                                    // trainset[pos].Item1[i - 1] = Double.Parse(chars[2 * i].ToString());
+                                    cesh_d[i - 1] = Double.Parse(chars[2 * i].ToString());
+                                }
+                                // trainset[pos].Item2 = Convert.ToInt32(chars[0]);
+                                // pos++;
+                                cesh.Add((cesh_d, Convert.ToInt32(chars[0])));
+                            }
+                        }
+                        const int mnogit = 1;
+                        trainset = new (double[], int)[mnogit * cesh.Count];
+                        // cesh.CopyTo(trainset);
+                        for (int i = 0; i < mnogit; i++)
+                            for (int j = 0; j < cesh.Count; j++)
+                                trainset[(cesh.Count * i) + j] = cesh[j];
+                    }
                     for(int n = trainset.Length - 1; n >= 0; n--)
                     {
                         int j = random.Next(n + 1);

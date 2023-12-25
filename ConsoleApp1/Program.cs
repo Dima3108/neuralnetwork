@@ -11,7 +11,7 @@ namespace ConsoleApp1
     internal class Program
     {
         static string get_file_name(string arg) { return $"fortrainsample{arg}.txt"; }
-        static readonly string[] f = { "", "1", "2", "3" };
+        static readonly string[] f = { "" };
         static MD5 md5 = MD5.Create();
         const string table = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
         static string BtoT(byte[] c)
@@ -34,9 +34,14 @@ namespace ConsoleApp1
             double o = Double.Parse(cesh_d[0].ToString());
             byte[] a = new byte[15];
             a[0] = (byte)o;
+            string code = "";
             for (int i = 0; i < 15; i++)
-                a[i] = (byte)cesh_d[i];
-          string f_name = chars[0].ToString()+"_"+BtoT( md5.ComputeHash(a))+".bmp";
+            {
+ a[i] = (byte)cesh_d[i];
+                code += a[i].ToString();
+            }
+               
+          string f_name = chars[0].ToString()+"_"+code+".bmp";
             Bitmap bitmap = new Bitmap(3,5,System.Drawing.Imaging.PixelFormat.Format32bppRgb);
             bitmap.SetResolution(48, 48);
             Color color_1 = Color.White;

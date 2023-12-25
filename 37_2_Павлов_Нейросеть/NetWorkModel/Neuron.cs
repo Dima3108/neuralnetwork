@@ -17,7 +17,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
             _type = type;
             weights = _weights;
         }
-        public unsafe void Activator(double *inpt,int iLength,double[] wght)
+        /*public unsafe void Activator(double *inpt,int iLength,double[] wght)
         {
             double sum = wght[0];
             for (int m = 0; m < iLength; ++m)
@@ -33,7 +33,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
 
                     break;
             }
-        }
+        }*/
         public void Activator(double[] inpt, double[] wght)
         {
             double sum = wght[0];

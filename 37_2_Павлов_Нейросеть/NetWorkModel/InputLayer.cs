@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace _37_2_Павлов_Нейросеть.NetWorkModel
 {
@@ -9,6 +10,7 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
         //поля
         private (double[], int)[] trainset = new (double[], int)[100];
         public (double[], int)[] Trainset { get => trainset; }
+        private int pred_len = -1;
         private List<(double[], int)> cesh;
 #if true
         public InputLayer(NetworkMode networkMode) 
@@ -25,8 +27,9 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                             c_len++;
                         }
                     }
-                        if (cesh == null||cesh.Count!=c_len)
+                        if (cesh == null||pred_len!=c_len)
                     {
+                        pred_len = c_len;
                         cesh = new System.Collections.Generic.List<(double[], int)>();
                         //Считывание примеров из  файла 
                         using (System.IO.StreamReader reader = new System.IO.StreamReader("fortrainsample.txt"))
@@ -46,15 +49,37 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
                                 }
                                 // trainset[pos].Item2 = Convert.ToInt32(chars[0]);
                                 // pos++;
-                                cesh.Add((cesh_d, Convert.ToInt32(chars[0])));
+                                cesh.Add((cesh_d, Convert.ToInt32(chars[0].ToString())));
                             }
                         }
                         const int mnogit = 1;
+int[] count = new int[10];
+                       
+                        List<(double[], int)>[] groups = new List<(double[], int)>[10];
+                        for(int j = 0; j < 10; j++)
+                        {
+                            groups[j] = new List<(double[], int)>();
+                        }
+                        for(int i=0;i<cesh.Count;i++)
+                            groups[cesh[i].Item2].Add(cesh[i]); 
+                        for (int i = 0; i < groups.Length; i++)
+                            count[i] = groups[i].Count;
+                        //уравниеваем примеры так чтобы они содержали одинаковое кол-во для каждой цифры
+                        int max = count.Max();
+                        for(int i = 0; i < 10; i++)
+                        {
+                            for(int j = 0; j < max - count[i];j++)
+                            {
+                                cesh.Add(groups[i][j % count[i]]);
+                            }    
+                        }
+                        //перенос в основной массив
                         trainset = new (double[], int)[mnogit * cesh.Count];
                         // cesh.CopyTo(trainset);
                         for (int i = 0; i < mnogit; i++)
                             for (int j = 0; j < cesh.Count; j++)
                                 trainset[(cesh.Count * i) + j] = cesh[j];
+                        
                     }
                     for(int n = trainset.Length - 1; n >= 0; n--)
                     {

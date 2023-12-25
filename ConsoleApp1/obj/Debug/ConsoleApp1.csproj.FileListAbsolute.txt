@@ -1,0 +1,12 @@
+Q:\github_repo\neuralnetwork\ConsoleApp1\bin\Debug\fortrainsample.txt
+Q:\github_repo\neuralnetwork\ConsoleApp1\bin\Debug\fortrainsample1.txt
+Q:\github_repo\neuralnetwork\ConsoleApp1\bin\Debug\fortrainsample2.txt
+Q:\github_repo\neuralnetwork\ConsoleApp1\bin\Debug\fortrainsample3.txt
+Q:\github_repo\neuralnetwork\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+Q:\github_repo\neuralnetwork\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+Q:\github_repo\neuralnetwork\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+Q:\github_repo\neuralnetwork\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+Q:\github_repo\neuralnetwork\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.SuggestedBindingRedirects.cache
+Q:\github_repo\neuralnetwork\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+Q:\github_repo\neuralnetwork\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+Q:\github_repo\neuralnetwork\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

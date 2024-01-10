@@ -42,8 +42,9 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
             switch (_type)
             {
                 case TypeNeuron.HiddenNeuron:
-                    _output = LogicFunc(sum);
-                    _derivative = LogicFuncDerivative(sum);
+                     _output = LogicFunc(sum);
+                     _derivative = LogicFuncDerivative(sum);
+                   
                     break;
                 case TypeNeuron.OutputNeuron:
                     _output = Math.Exp(sum);
@@ -57,5 +58,6 @@ namespace _37_2_Павлов_Нейросеть.NetWorkModel
             double val = LogicFunc(x);
             return val * (1.000000000000 - val);
         }
+       
     }
 }
